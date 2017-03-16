@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+<!-- 每个bean都对应有一个id和class
+    <bean id="u" class="dao.UserDaoImpl"></bean> -->
+    <bean id="calculateService" class="com.katkrazy.calculate.service.CalculateService" />
+    <!-- 下面代码表示：在id为userService的service中有一个名叫userDao的属性,
+         更准确的说是在service中有一个setUserDao的方法 ，该方法调用时必须把上面id为u的bean传进来，
+         此时就把这两个东西装配起来：专业说法是动态装配。
+         即可以把UserService.java中的private的userDao属性给注入进来【注入】
+         一定要注意：下面代码中的property中的name的值必须和你UserService.java中定义的变量要一致。
+         也就是和必须和你service中的setDao的方法匹配，有setDao(),则name的值就是dao，即去掉前面的set
+
+    <bean id="userService" class="service.UserService">
+       <property name="dao" ref="u"></property>
+    </bean> -->
+</beans>
