@@ -1,5 +1,6 @@
 package com.katkrazy.calculate.action;
 
+import com.katkrazy.calculate.dao.impl.CalculateDaoImpl;
 import com.katkrazy.calculate.service.CalculateService;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -29,6 +30,8 @@ public class CalculateAction extends Action {
             throws Exception {
 
         CalculateService calculateService = (CalculateService) ctx.getBean("CalculateService");
+        CalculateDaoImpl c = new CalculateDaoImpl();
+        c.find();
         return null;
     }
 }
